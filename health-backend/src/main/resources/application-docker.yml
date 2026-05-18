@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://health-mysql:3306/db_health?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:123456}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:health-redis}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+
+  ai:
+    openai:
+      api-key: ${AI_API_KEY:}
+
+logging:
+  level:
+    com.shanzhu: info
+
+health:
+  ai:
+    enabled: ${AI_ENABLED:true}

@@ -1,0 +1,22 @@
+# ============================================
+# Spring AI 本地 llama.cpp 配置（Qwen2.5-7B）
+# 使用方式：
+#   1. 启动 llama.cpp 服务器：
+#      D:\llama-cpp\llama-server.exe -m D:\llama-models\qwen2.5-7b-instruct-q4_k_m.gguf -c 4096 -ngl 99 --host 0.0.0.0 --port 8000
+#   2. 启动后端时加上参数：
+#      java -jar health-backend.jar --spring.profiles.active=vllm-local
+# ============================================
+spring:
+  config:
+    activate:
+      on-profile: vllm-local
+
+  ai:
+    openai:
+      base-url: http://127.0.0.1:8000
+      api-key: no-key
+      chat:
+        options:
+          model: qwen2.5-3b-instruct-q4_k_m.gguf
+          temperature: 0.7
+          max-tokens: 4096
